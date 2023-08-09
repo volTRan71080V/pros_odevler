@@ -10,6 +10,9 @@ std::shared_ptr<ChassisController> drive =
         .buildOdometry();
 
 void OpControl() {
-  drive->getModel()->tank(controller.getAnalog(ControllerAnalog::leftY),
-                          controller.getAnalog(ControllerAnalog::rightX));
+  while (true) {
+    drive->getModel()->tank(controller.getAnalog(ControllerAnalog::leftY),
+                            controller.getAnalog(ControllerAnalog::rightX));
+    pros::delay(10);
+  }
 }
